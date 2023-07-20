@@ -118,3 +118,36 @@ fi
 
 # alias
 alias nv=nvim
+
+# rm2mv
+#
+export TRASH=~/.trash
+alias rm=trash
+alias rl='ls $TRASH'
+alias ur=undelfile
+
+undelfile()
+{
+   mv $TRASH/$@ ./
+}
+trash()
+{
+  if [ ! -d $TRASH  ];then
+      mkdir $TRASH
+  fi
+  mv $@ $TRASH
+}
+cleartrash()
+{
+    echo -e "\n"
+    read  "confirm? clean trash[n/y]"
+    [ $confirm = 'y' ] || [ $confirm = 'Y' ]  && /bin/rm -rf $TRASH/*
+}
+rmf()
+{
+    echo -e "\n"
+    read  "confirm? rm -rf [n/y]"
+    [ $confirm = 'y' ] || [ $confirm = 'Y' ]  && /bin/rm -rf $@
+}
+
+source /Users/guo/.config/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
