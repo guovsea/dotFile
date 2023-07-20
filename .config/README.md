@@ -32,3 +32,7 @@ powerlevel10k
     > cd markdown-preview.nvim
     > yarn install
     > yarn build
+- lazyVim的配置
+  lazyVim下载的所有插件都在:`~/.local/share/nvim/lazy``目录下
+  `~/.config/nvim/stylua.toml`配置文件无法覆盖`~/.local/share/nvim/lazy/lazy.nvim/stylua.toml`
+  
